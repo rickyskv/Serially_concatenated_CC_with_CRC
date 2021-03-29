@@ -30,22 +30,34 @@ The codes in the folder _Design_CRC_ are written in MATLAB R2018b. They are used
 - `best_CRC` : it outputs the generator polynomial of the best CRC code in octave (e.g. x^6+x^5+x^2+1 -> [1 100 101] -> 145)
 - `A_min` : it outputs the weight enumerator coefficient at `d_min` of the concatenation of the CC with the `best_CRC` found
 
+If `d_max` is not sufficient to find the best degree-_m_ CRC code, the code will display to your screen an error message. In that case run again your algorithm with a larger `d_max`.
+
 The code is based on the following papers:
 1. Lou, Chung-Yu, Babak Daneshrad, and Richard D. Wesel. "Convolutional-code-specific CRC code design." IEEE Transactions on Communications 63.10 (2015): 3459-3470.
 2. Yang, Hengjie, et al. "An Efficient Algorithm for Designing Optimal CRCs for Tail-Biting Convolutional Codes." 2020 IEEE International Symposium on Information Theory (ISIT). IEEE, 2020.
 
-The algorithms are more efficient than the ones proposed in the previous papers, by the use of the following CRC codes properties:
+The algorithms are more efficient than the ones proposed in the previous papers in the number of checks, by the use of the following CRC codes properties:
 1. single-bit error detection
 2. burst error detection
 3. odd detection for those generator polynomials multiples of (X+1)
 
 ### Zero-Tail terminated Convolutional Codes (ZTCC)
+The algorithm will consider a _(K+m+v,K)_ serially concatenated code
 Run
-`[d_min,A_min,best_CRC]=find_best_CRC_ZTCC(v,gen_CC,K,m,d_max)`
+`[d_min,A_min,best_CRC]=find_best_CRC_ZTCC(v,gen_CC,K,m,d_max);`
+
+e.g. to find the best degree-6 CRC code for the famous constraint length 7 ZTCC with generator polynomial [133,171], when `K=64`, run:
+
+`[d_min,A_min,best_CRC]=find_best_CRC_ZTCC(7-1,[133,171],64,6,14);`
 
 ### Tail-Biting terminated Convolutional Codes (TBCC)
+The algorithm will consider a _(K+m+v,K)_ serially concatenated code
 Run
-`[d_min,A_min,best_CRC]=find_best_CRC_TBCC(v,gen_CC,K,m,d_max)`
+`[d_min,A_min,best_CRC]=find_best_CRC_TBCC(v,gen_CC,K,m,d_max);`
+
+e.g. to find the best degree-6 CRC code for the famous constraint length 7 ZTCC with generator polynomial [133,171], when `K=64`, run:
+
+`[d_min,A_min,best_CRC]=find_best_CRC_ZTCC(7-1,[133,171],64,6,14);`
 
 ## Decode a Serially Concatenated CC with an Outer CRC Code
 To be added
