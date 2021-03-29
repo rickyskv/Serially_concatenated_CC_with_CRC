@@ -51,7 +51,7 @@ e.g. to find the best degree-6 CRC code for the famous constraint length 7 ZTCC 
 `[d_min,A_min,best_CRC]=find_best_CRC_ZTCC(7-1,[133,171],64,6,14);`
 
 ### Tail-Biting terminated Convolutional Codes (TBCC)
-The algorithm will consider a _(K+m+v,K)_ serially concatenated code
+The algorithm will consider a _(K+m,K)_ serially concatenated code
 Run
 `[d_min,A_min,best_CRC]=find_best_CRC_TBCC(v,gen_CC,K,m,d_max);`
 
