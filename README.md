@@ -15,7 +15,19 @@ Riccardo Schiavone, riccardo.schiavone@eurecom.fr
 Code developed at the German Aerospace Center (DLR) for my Master's Thesis on "Channel Coding for Massive IoT Satellite Systems"
 Thesis supervisors: Gianluigi LIVA (DLR), Roberto Garello (Politecnico di Torino), David Gesbert (EURECOM)
 
-## Design best degree-_m_ CRC outer code for a specific CC code
+## 1) Decode serially concatenated tail-biting convolutional codes with outer CRC code
+*Note: the code is compatible with linux machines. Multi-process configuration is possible, simply changing the parameter in the testbench file. If you are not using a machine with an Intel processor, remove the libraries in the C files used for vector computations.*
+
+Files:
+- `Testbench_ListViterbiAlgorithms.m` generates the files (trellis, generator matrix, parity check matrix) used by the simulators implemented in the C files. Modify the parameters section to test various codes.
+- `ParallelListViterbiAlgorithms.c` implements the TBCC+CRC encoder, adds AWGN impairments, punctures the code, and decodes the received vectors with the given parameters.
+- `SerialListViterbiAlgorithms.c` implements the TBCC+CRC encoder, adds AWGN impairments, punctures the code, and decodes the received vectors with the given parameters.
+- `Print_*.m` prints the matrices/structures used by the simulators implemented in the C files.
+- `generator_*.m` and `Generate_*.m` generate some useful matrices needed in the code.
+
+In case of any errors or problems, please contact me via email (riccardo.schiavone@polito.it, rs.riccardoschiavone@gmail.com)
+
+## 2) Design best degree-_m_ CRC outer code for a specific CC code
 The codes in the folder _Design_CRC_ are written in MATLAB R2018b. They are used to design the best degree-_m_ CRC outer code for a specific convolutional code.
 
 **Inputs**:
