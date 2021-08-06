@@ -9,7 +9,7 @@ serially concatenated convolutional codes (both tail-biting and zero-tail termin
 All the material of this repository is provided under license CC BY-NC-ND
 
 ## Author
-Riccardo Schiavone, riccardo.schiavone@eurecom.fr
+Riccardo Schiavone, riccardo.schiavone@polito.it, rs.riccardoschiavone@gmail.com
 
 ## Related material
 Code developed at the German Aerospace Center (DLR) for my Master's Thesis on "Channel Coding for Massive IoT Satellite Systems"
