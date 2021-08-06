@@ -97,9 +97,8 @@ void read_H (char *H_filename, int ***H, int n, int *r);
 decoder_node_t **initialize_trellis (char *trellis_filename, double *Y, int num_sections, int *num_states, int num_outputs, int list_size, int *num_inputs, int *num_next_states) ;
 // run Viterbi to update the initial distance of each starting node of the trellis and build the tree trellis structure (each node stores the best path according to Viterbi and the path from the other incoming node) 
 void WAVA_Update_Distances_and_Build_Tree_Trellis(decoder_node_t ***Trellis_nodes, int num_sections, int num_states, int num_next_states, int num_WAVA);
+// Serial List Viterbi Algorithm
 int *Serial_List_Viterbi_Decoder(decoder_node_t ***Trellis_nodes, int num_sections, int num_states, int num_next_states, int list_size, int num_inputs, int **H, int r);
-// Parallel List Viterbi Algorithm
-int *Parallel_List_Viterbi_Decoder(decoder_node_t ***Trellis_nodes, int num_sections, int num_states, int num_next_states, int list_size, int num_inputs, int **H, int r);
 // backward function to find the codeword/message corresponding to a certain path stored in the stack
 int *back_Trellis_stack(decoder_node_t **Trellis_nodes,stack_node_t stack_node,int num_sections,int num_next_states, int num_inputs);
 // CRC syndrome check of the paths found
